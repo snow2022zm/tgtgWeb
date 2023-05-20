@@ -8,8 +8,11 @@ app.use(express.json())
 app.set("view engine", "ejs")
 
 const ownerAccountSettingsRouter = require("./routes/owners/owners")
+const buyerAccountSettingsRouter = require("./routes/buyers/buyers")
 
 app.use("/owners", ownerAccountSettingsRouter)
+
+app.use("/buyers", buyerAccountSettingsRouter)
 
 app.get('/', (req, res) => {
     res.render('index')
