@@ -9,10 +9,12 @@ app.set("view engine", "ejs")
 
 const ownerAccountSettingsRouter = require("./routes/owners/owners")
 const ownerBagsRouter = require("./routes/owners/ownerBags")
+const ownerOrdersRouter = require("./routes/owners/ownerOrders")
 const buyerAccountSettingsRouter = require("./routes/buyers/buyers")
 
 app.use("/owners", ownerAccountSettingsRouter)
 app.use("/ownerBags", ownerBagsRouter)
+app.use("/ownerOrders", ownerOrdersRouter)
 
 app.use("/buyers", buyerAccountSettingsRouter)
 
