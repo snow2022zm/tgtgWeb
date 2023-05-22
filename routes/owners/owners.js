@@ -25,9 +25,11 @@ router
     
 
 router.get("/:id", (req, res) => {
-    if (!req.session || !req.session.ownerId
-        || req.session.ownerId.toString() !== req.params.id.toString()) {
+    if (!req.session || !req.session.ownerId) {
         res.redirect("/owners/signin")
+    }
+    if (req.session.ownerId.toString() !== req.params.id.toString()) {
+        res.render("errors/permissionDenied")
     }
     res.render("owners/account/accountSettings")
 })
