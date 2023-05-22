@@ -5,9 +5,14 @@ router.get("/", (req, res) => {
     res.render("owners/bags/list")
 })
 
-router.get("/new", (req, res) => {
-    res.render("owners/bags/new")
-})
+router.route("/new")
+    .get((req, res) => {
+        res.render("owners/bags/new")
+    })
+    .post((req, res) => {
+        // create surprise bag using `req.body` by calling backend API
+        res.redirect("/ownerbags")
+    })
 
 router.get("/:id", (req, res) => {
     res.render("owners/bags/edit")
