@@ -8,7 +8,7 @@ router
     })
     .post((req, res) => {
         // TODO: validate and create the email and password by calling backend API
-        res.redirect("http://localhost:3000/owners/signin")
+        res.redirect("/owners/signin")
     })
 
 router
@@ -20,7 +20,7 @@ router
         // TODO: validate the account and get acccount id by calling backend API
         const ownerId = 1
         req.session.ownerId = ownerId
-        res.redirect("http://localhost:3000/owners/" + ownerId)
+        res.redirect("/owners/" + ownerId)
     })
     
 
