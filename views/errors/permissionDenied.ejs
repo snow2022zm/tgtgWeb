@@ -8,5 +8,15 @@
 </head>
 <body>
     You don't have permission to access this page!
+    <div>
+        <button 
+            onClick="window.location.href='/' + '<%= locals.userType %>' + '/'+'<%= locals.userId %>';"
+        >
+            return to user acccount settings page
+        </button>
+    </div>
+    <div>
+        <button onClick="window.location.href='/';">return to homepage</button>
+    </div>
 </body>
 </html>
