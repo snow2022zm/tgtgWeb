@@ -1,4 +1,5 @@
 const express = require("express")
+const session = require('express-session')
 const app = express()
 
 app.use(express.static("public"))
@@ -6,6 +7,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.set("view engine", "ejs")
+
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: "tgtg"
+}))
 
 const ownerAccountSettingsRouter = require("./routes/owners/owners")
 const ownerBagsRouter = require("./routes/owners/ownerBags")
