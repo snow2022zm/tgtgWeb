@@ -25,7 +25,10 @@ router
     
 
 router.get("/:id", (req, res) => {
-    console.log(req.session)
+    if (!req.session || !req.session.ownerId
+        || req.session.ownerId.toString() !== req.params.id.toString()) {
+        res.redirect("/owners/signin")
+    }
     res.render("owners/account/accountSettings")
 })
 
