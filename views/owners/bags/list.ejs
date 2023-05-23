@@ -7,6 +7,20 @@
     <title>Owner suprise bag list</title>
 </head>
 <body>
-    This is owner suprise bag list
+    <h1>This is owner suprise bag list</h1>
+    <ul id="bagList"></ul>
+    <script>
+        var bagBasicInfos = <%- JSON.stringify(locals.bagBasicInfos) %>;
+        let bagList = document.getElementById("bagList");
+        
+        bagBasicInfos.forEach((info) => {
+            var a = document.createElement("a");
+            let li = document.createElement("li");
+            a.textContent = info.name;
+            a.setAttribute('href', "/ownerbags/" + info.id);
+            li.appendChild(a);
+            bagList.appendChild(li);
+        });
+    </script>
 </body>
 </html>

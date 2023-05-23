@@ -6,9 +6,12 @@ router.get("/", (req, res) => {
     // TODO: get ownerBags by ownerId using backend API
     const ownerId = req.session.ownerId
     const ownerBags = mocks.ownerBags
-    const bags = ownerBags.map(bag => ({name: bag.name, id: bag.id}))
-    console.log(bags)
-    res.render("owners/bags/list")
+    const bagBasicInfos = ownerBags.map(bag => ({name: bag.name, id: bag.id}))
+    res.render("owners/bags/list",
+        {
+            bagBasicInfos: bagBasicInfos
+        }
+    )
 })
 
 router.route("/new")
