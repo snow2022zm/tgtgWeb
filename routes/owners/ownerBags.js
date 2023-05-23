@@ -23,8 +23,33 @@ router.route("/new")
         res.redirect("/ownerbags")
     })
 
-router.get("/:id", (req, res) => {
-    res.render("owners/bags/edit")
-})
+router.route("/:bagId")
+    .get((req, res) => {
+        // validate ownerId and bag id, then get bag details by API
+        const ownerId = req.session.ownerId
+        const bagDetails = mocks.bag1
+        if (bagDetails === null) {
+            res.render("errors/permissionDenied", 
+                {
+                    userId: ownerId,
+                    userType: "owners"
+                }
+            )
+        }
+        res.render("owners/bags/edit",
+            {
+                bagDetails: bagDetails
+            }
+        )
+    })
+    .post((req, res) => {
+        if (req.body.enabled === 'true') {
+            req.body.enabled = true
+        } else {
+            req.body.enabled = false
+        }
+        console.log(req.body)
+        res.redirect("/ownerbags")
+    })
 
 module.exports = router

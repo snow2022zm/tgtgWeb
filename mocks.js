@@ -4,12 +4,14 @@ const BAG1 = {
     'address': 'address1',
     'latitude': 42.0,
     'longitude': 42.0,
-    'desription': 'desription1',
+    'description': 'description1',
     'ingredients': 'ingredients1',
     'type': 'type1',
     'originalPrice': 12,
     'discountPrice': 4,
-    'weight': 5
+    'weight': 5,
+    'quantity': 0,
+    'enabled': false
 }
 
 const OWNER_BAGS = [BAG1]
