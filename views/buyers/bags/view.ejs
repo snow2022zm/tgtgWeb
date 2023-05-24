@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buyer suprise bag details</title>
+    <title>Buyer surprise bag details</title>
 </head>
 <body>
-    This is buyer suprise bag details page.
+    <h1>Buyer surprise bag details page</h1>
+    <form method="POST">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="<%= locals.bagDetails.name %>" disabled>
+        </div>
+        <div>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" value="<%= locals.bagDetails.address %>" disabled>
+        </div>
+        <div>
+            <label for="latitude">Latitude</label>
+            <input type="number" id="latitude" name="latitude" value="<%= locals.bagDetails.latitude %>" disabled>
+        </div>
+        <div>
+            <label for="longitude">Longitude</label>
+            <input type="number" id="longitude" name="longitude" value="<%= locals.bagDetails.longitude %>" disabled>
+        </div>
+        <div>
+            <label for="descritpion">Descritpion</label>
+            <input type="text" id="descritpion" name="descritpion" value="<%= locals.bagDetails.description %>" disabled>
+        </div>
+        <div>
+            <label for="ingredients">Ingredients & Allergens</label>
+            <input type="text" id="ingredients" name="ingredients" value="<%= locals.bagDetails.ingredients %>" disabled>
+        </div>
+        <div>
+            <label for="type">Meal Type</label>
+            <input type="text" id="type" name="type" value="<%= locals.bagDetails.type %>" disabled>
+        </div>
+        <div>
+            <label for="originalPrice">Orginal Price</label>
+            <input type="number" id="originalPrice" name="originalPrice" value="<%= locals.bagDetails.originalPrice %>" disabled>
+        </div>
+        <div>
+            <label for="discountPrice">Discount Price</label>
+            <input type="number" id="discountPrice" name="discountPrice" value="<%= locals.bagDetails.discountPrice %>" disabled>
+        </div>
+        <div>
+            <label for="weight">Weight</label>
+            <input type="number" id="weight" name="weight" value="<%= locals.bagDetails.weight %>" disabled>
+        </div>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="<%= locals.bagDetails.quantity %>" disabled>
+        </div>
+        <div>
+            <label for="enabled">Status</label>
+            <input type="text" id="enabled" name="enabled" value=<%- locals.bagDetails.enabled ? "Enabled" : "Disabled" %> disabled>
+        </div>
+        <div>
+            <button>Purchase</button>
+        </div>
+    </form>
+    <div>
+        <button onClick="window.location.href='/';">return to homepage</button>
+    </div>
 </body>
 </html>
