@@ -25,6 +25,8 @@ router
     
 
 router.get("/:id", (req, res) => {
+    // if req doesn't contain session attribute or req.session doesn't have owner id attribute
+    // or if req.session is null or req.session.ownerId is null
     if (!req.session || !req.session.ownerId) {
         res.redirect("/owners/signin")
     }
