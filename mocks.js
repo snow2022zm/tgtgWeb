@@ -1,5 +1,9 @@
+const MOCK_BAG_ID = 1001
+
+const MOCK_ACTIVATION_ID = 10001
+
 const BAG1 = {
-    'id': 1001,
+    'id': MOCK_BAG_ID,
     'name': 'name1',
     'address': 'address1',
     'latitude': 42.0,
@@ -19,6 +23,8 @@ const BUYER_BAGS = [BAG1]
 
 
 module.exports = Object.freeze({
+    mockActivationId: MOCK_ACTIVATION_ID,
+    mockBagId: MOCK_BAG_ID,
     bag1: BAG1,
     ownerBags: OWNER_BAGS,
     buyerBags: BUYER_BAGS

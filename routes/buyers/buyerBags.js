@@ -14,22 +14,28 @@ router.get("/", (req, res) => {
     )
 })
 
-router.get("/:id", (req, res) => {
-    const buyerId = req.session.buyerId
-    const bagDetails = mocks.bag1
-    if (bagDetails === null) {
-        res.render("errors/permissionDenied", 
+router
+    .route("/:id")
+    .get((req, res) => {
+        const buyerId = req.session.buyerId
+        const bagDetails = mocks.bag1
+        if (bagDetails === null) {
+            res.render("errors/permissionDenied", 
+                {
+                    userId: buyerId,
+                    userType: "buyers"
+                }
+            )
+        }
+        res.render("buyers/bags/view",
             {
-                userId: buyerId,
-                userType: "buyers"
+                bagDetails: bagDetails
             }
         )
-    }
-    res.render("buyers/bags/view",
-        {
-            bagDetails: bagDetails
-        }
-    )
-})
+    })
+    .post((req, res) => {
+        // set bagId, activationId to user's cart using backend API
+        res.redirect('/payment/paymentDetails')
+    })
 
 module.exports = router
