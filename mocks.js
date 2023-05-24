@@ -15,8 +15,11 @@ const BAG1 = {
 }
 
 const OWNER_BAGS = [BAG1]
+const BUYER_BAGS = [BAG1]
+
 
 module.exports = Object.freeze({
     bag1: BAG1,
-    ownerBags: OWNER_BAGS
+    ownerBags: OWNER_BAGS,
+    buyerBags: BUYER_BAGS
 })
