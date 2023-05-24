@@ -17,13 +17,13 @@
             var a = document.createElement("a");
             let li = document.createElement("li");
             a.textContent = info.name;
-            a.setAttribute('href', "/ownerbags/" + info.id);
+            a.setAttribute('href', "/ownerBags/" + info.id);
             li.appendChild(a);
             bagList.appendChild(li);
         });
     </script>
     <div>
-        <button onClick="window.location.href='/ownerbags/new';">Create a new bag</button>
+        <button onClick="window.location.href='/ownerBags/new';">Create a new bag</button>
     </div>
 </body>
 </html>

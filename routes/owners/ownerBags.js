@@ -20,7 +20,7 @@ router.route("/new")
     })
     .post((req, res) => {
         // create surprise bag using `req.body` by calling backend API
-        res.redirect("/ownerbags")
+        res.redirect("/ownerBags")
     })
 
 router.route("/:bagId")
@@ -49,7 +49,7 @@ router.route("/:bagId")
             req.body.enabled = false
         }
         console.log(req.body)
-        res.redirect("/ownerbags")
+        res.redirect("/ownerBags")
     })
 
 module.exports = router

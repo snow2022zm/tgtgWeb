@@ -23,8 +23,21 @@ router
         res.redirect("/buyers/" + buyerId)
     })
 
-router.get("/:id", (req, res) => {
-    res.render("buyers/account/accountSettings")
-})
+    router.get("/:id", (req, res) => {
+        // if req doesn't contain session attribute or req.session doesn't have owner id attribute
+        // or if req.session is null or req.session.ownerId is null
+        if (!req.session || !req.session.buyerId) {
+            res.redirect("/buyers/signin")
+        }
+        if (req.session.buyerId.toString() !== req.params.id.toString()) {
+            res.render("errors/permissionDenied", 
+                {
+                    userId: req.session.buyerId.toString(),
+                    userType: "buyers"
+                }
+            )
+        }
+        res.render("buyers/account/accountSettings")
+    })
 
 module.exports = router
