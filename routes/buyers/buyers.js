@@ -11,9 +11,17 @@ router
         res.redirect("/buyers/signin")
     })
 
-router.get("/signin", (req, res) => {
-    res.render("buyers/account/signin")
-})
+router
+    .route("/signin")
+    .get((req, res) => {
+        res.render("buyers/account/signin")
+    })
+    .post((req, res) => {
+        // TODO: validate the account and get acccount id by calling backend API
+        const buyerId = 11
+        req.session.buyerId = buyerId
+        res.redirect("/buyers/" + buyerId)
+    })
 
 router.get("/:id", (req, res) => {
     res.render("buyers/account/accountSettings")
