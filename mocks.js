@@ -4,6 +4,7 @@ const MOCK_ACTIVATION_ID = 10001
 
 const BAG1 = {
     'id': MOCK_BAG_ID,
+    'ownerId': 1,
     'name': 'name1',
     'address': 'address1',
     'latitude': 42.0,
